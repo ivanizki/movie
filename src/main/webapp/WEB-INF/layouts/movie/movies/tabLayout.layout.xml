@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" ?>
+
+<config:template-call
+	xmlns:config="http://www.top-logic.com/ns/config/6.0"
+	final="true"
+	template="com.top_logic/tab.template.xml"
+>
+	<arguments
+		helpID=""
+		tabIcon="css:fas fa-film"
+	>
+		<tabLabel key="dynamic.0b79b59e-268e-4069-940b-2ea9615d3f7a">
+			<en>Movies</en>
+			<de>Movies</de>
+		</tabLabel>
+		<components>
+			<layout-reference resource="movie/movies/innerLayout.layout.xml"/>
+		</components>
+	</arguments>
+</config:template-call>

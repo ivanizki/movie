@@ -8,28 +8,45 @@
 				interface-package="ivanizki.movie.model"
 			/>
 		</annotations>
-		<types>
-
-			<!-- Put your application types here, for example: -->
-			<!-- 
-			<class name="A">
-				<attributes>
-					<property name="name" type="tl.core:String" mandatory="true"/>
-				</attributes>
-			</class>
-			
-			<class name="B">
-				<generalizations>
-					<generalization type="A"/>
-				</generalizations>
-				
-				<attributes>
-					<property name="x" type="tl.core:Integer"/>
-					<reference name="others" type="A" multiple="true"/>
-				</attributes>
-			</class>
-		 -->
-
-		</types>
+		<class name="Human">
+			<generalizations>
+				<generalization type="tl.model:TLObject"/>
+			</generalizations>
+			<attributes>
+				<property name="name"
+					type="tl.core:String"
+				/>
+			</attributes>
+		</class>
+		<class name="Movie">
+			<generalizations>
+				<generalization type="tl.model:TLObject"/>
+			</generalizations>
+			<attributes>
+				<property name="year"
+					type="tl.core:Integer"
+				/>
+				<property name="title"
+					type="tl.core:String"
+				/>
+				<reference name="directors"
+					kind="forwards"
+					multiple="true"
+					navigate="true"
+					ordered="true"
+					type="Human"
+				/>
+				<property name="duration"
+					type="tl.core:Integer"
+				/>
+				<reference name="actors"
+					kind="forwards"
+					multiple="true"
+					navigate="true"
+					ordered="true"
+					type="Human"
+				/>
+			</attributes>
+		</class>
 	</module>
 </model>
