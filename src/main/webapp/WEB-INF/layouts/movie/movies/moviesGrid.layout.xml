@@ -36,5 +36,8 @@
 				target="selection(self())"
 			/>
 		</buttons>
+		<dialogs>
+			<layout-reference resource="movie/movies/moviesImportDialog.layout.xml"/>
+		</dialogs>
 	</arguments>
 </config:template-call>
