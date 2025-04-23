@@ -19,6 +19,12 @@
 			supportsElement="element->$element.instanceOf(`movie:Movie`)"
 		/>
 		<buttons>
+			<button id="exportMovies"
+				class="ivanizki.movie.movies.CSVExportHandler"
+				clique="exportButtons"
+				image="css:fas fa-file-download"
+				resourceKey="exportMovies"
+			/>
 			<button id="exportExcelGrid"
 				class="com.top_logic.layout.table.export.StreamingExcelExportHandler"
 			/>
