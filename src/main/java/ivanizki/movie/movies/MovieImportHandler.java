@@ -82,7 +82,7 @@ public class MovieImportHandler extends AbstractCommandHandler {
 		List<String> parts = new ArrayList<>();
 		if (string != null) {
 			for (String part : string.split(regex)) {
-				parts.add(part);
+				parts.add(part.trim());
 			}
 		}
 		return parts;
