@@ -3,11 +3,14 @@
 <config:template-call
 	xmlns:config="http://www.top-logic.com/ns/config/6.0"
 	final="true"
-	template="com.top_logic/contentLayout.template.xml"
+	template="com.top_logic/layout.template.xml"
 >
 	<arguments>
 		<components>
-			<layout-reference resource="movie/movies/tabbar.layout.xml">
+			<layout-reference resource="movie/movies/movies/moviesTable/moviesGrid.layout.xml">
+				<layoutInfo size="50%"/>
+			</layout-reference>
+			<layout-reference resource="movie/movies/movies/movieForm.layout.xml">
 				<layoutInfo/>
 			</layout-reference>
 		</components>

@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8" ?>
+
+<layout name="MoviesImportDialog">
+	<dialogInfo
+		defaultI18n="moviesImportDialog"
+		executability="InViewMode"
+		height="200"
+		image="css:fas fa-file-upload"
+		openerClique="importButtons"
+		openerCommandGroup="Create"
+		width="300"
+	/>
+	<components>
+		<component class="ivanizki.movie.movies.MoviesImportDialog"
+			model="null()"
+		>
+			<buttons>
+				<button id="importMovies"
+					class="ivanizki.movie.movies.MovieImportHandler"
+					executability="com.top_logic.tool.execution.AlwaysExecutable"
+					group="Create"
+					resourceKey="importMovies"
+				/>
+			</buttons>
+		</component>
+		<component class="com.top_logic.knowledge.gui.layout.DefaultButtonComponent"/>
+	</components>
+</layout>

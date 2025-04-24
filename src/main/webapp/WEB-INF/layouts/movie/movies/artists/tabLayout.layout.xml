@@ -5,16 +5,13 @@
 	final="true"
 	template="com.top_logic/tab.template.xml"
 >
-	<arguments
-		helpID=""
-		tabIcon="css:fas fa-film"
-	>
-		<tabLabel key="dynamic.aed2a213-0cf7-44e9-9010-95bfa7ec99bc">
-			<en>Movies</en>
-			<de>Movies</de>
+	<arguments helpID="">
+		<tabLabel key="dynamic.04e4b37b-9ad7-4b17-bed8-65f070077e5e">
+			<en>Artists</en>
+			<de>Artists</de>
 		</tabLabel>
 		<components>
-			<layout-reference resource="movie/movies/innerLayout.layout.xml"/>
+			<layout-reference resource="movie/movies/artists/innerLayout.layout.xml"/>
 		</components>
 	</arguments>
 </config:template-call>

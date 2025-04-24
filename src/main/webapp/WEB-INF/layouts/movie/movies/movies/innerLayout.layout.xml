@@ -7,7 +7,7 @@
 >
 	<arguments>
 		<components>
-			<layout-reference resource="movie/movies/tabbar.layout.xml">
+			<layout-reference resource="movie/movies/movies/movies.layout.xml">
 				<layoutInfo/>
 			</layout-reference>
 		</components>

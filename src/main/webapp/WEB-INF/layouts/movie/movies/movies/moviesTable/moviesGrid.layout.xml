@@ -7,9 +7,12 @@
 >
 	<arguments
 		defaultColumns="year,title,directors,duration,actors"
-		fixedColumns="1"
+		fixedColumns="0"
 		type="movie:Movie"
 	>
+		<dialogs>
+			<layout-reference resource="movie/movies/movies/moviesTable/moviesImportDialog.layout.xml"/>
+		</dialogs>
 		<name key="dynamic.53053a9c-b252-481b-81ca-f80bc2b2a06d">
 			<en>Movies</en>
 			<de>Movies</de>
@@ -18,15 +21,14 @@
 			elements="model->all(`movie:Movie`)"
 			supportsElement="element->$element.instanceOf(`movie:Movie`)"
 		/>
+		<configurationProviders>
+			<sort-columns order="year:descending"/>
+		</configurationProviders>
 		<buttons>
 			<button id="exportMovies"
 				class="ivanizki.movie.movies.CSVExportHandler"
-				clique="exportButtons"
 				image="css:fas fa-file-download"
 				resourceKey="exportMovies"
-			/>
-			<button id="exportExcelGrid"
-				class="com.top_logic.layout.table.export.StreamingExcelExportHandler"
 			/>
 			<button id="createRow"
 				class="com.top_logic.model.search.providers.GridCreateHandlerByExpression"
@@ -42,8 +44,5 @@
 				target="selection(self())"
 			/>
 		</buttons>
-		<dialogs>
-			<layout-reference resource="movie/movies/moviesImportDialog.layout.xml"/>
-		</dialogs>
 	</arguments>
 </config:template-call>

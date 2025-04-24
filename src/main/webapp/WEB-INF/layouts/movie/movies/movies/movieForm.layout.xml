@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8" ?>
+
+<config:template-call
+	xmlns:config="http://www.top-logic.com/ns/config/6.0"
+	final="true"
+	template="com.top_logic.element/form.template.xml"
+>
+	<arguments
+		model="selection(movie/movies/movies/moviesTable/moviesGrid.layout.xml#Grid)"
+		type="movie:Movie"
+	>
+		<name key="dynamic.a050ab5b-4c6b-4e06-a1bd-6ac030029f44">
+			<en>Movie</en>
+			<de>Movie</de>
+		</name>
+	</arguments>
+</config:template-call>
