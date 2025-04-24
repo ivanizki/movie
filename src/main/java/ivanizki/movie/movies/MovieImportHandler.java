@@ -9,6 +9,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
+import com.top_logic.basic.StringServices;
 import com.top_logic.basic.config.InstantiationContext;
 import com.top_logic.knowledge.service.PersistencyLayer;
 import com.top_logic.knowledge.service.Transaction;
@@ -80,7 +81,7 @@ public class MovieImportHandler extends AbstractCommandHandler {
 	 */
 	public static List<String> split(String string, String regex) {
 		List<String> parts = new ArrayList<>();
-		if (string != null) {
+		if (!StringServices.isEmpty(string)) {
 			for (String part : string.split(regex)) {
 				parts.add(part.trim());
 			}

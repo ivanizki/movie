@@ -98,6 +98,7 @@ public class MovieImporter {
 		if (human == null) {
 			human = (Wrapper) DynamicModelService.getInstance().createObject(HUMAN_TYPE);
 			human.setValue("name", getName(importHuman));
+			_humans.put(key, human);
 		}
 		return human;
 	}
