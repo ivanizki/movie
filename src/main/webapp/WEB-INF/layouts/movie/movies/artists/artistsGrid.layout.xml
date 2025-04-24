@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8" ?>
+
+<config:template-call
+	xmlns:config="http://www.top-logic.com/ns/config/6.0"
+	final="true"
+	template="com.top_logic.element/grid.template.xml"
+>
+	<arguments
+		defaultColumns="name"
+		fixedColumns="0"
+		type="movie:Human"
+	>
+		<name key="dynamic.a02586e6-64e0-4dd7-8138-8f1828ab967f">
+			<en>Artists</en>
+			<de>Artists</de>
+		</name>
+		<modelBuilder class="com.top_logic.model.search.providers.ListModelByExpression"
+			elements="model->all(`movie:Human`)"
+			supportsElement="element->$element.instanceOf(`movie:Human`)"
+		/>
+		<buttons>
+			<button id="exportExcelGrid"
+				class="com.top_logic.layout.table.export.StreamingExcelExportHandler"
+			/>
+			<button id="createRow"
+				class="com.top_logic.model.search.providers.GridCreateHandlerByExpression"
+			>
+				<checkScopeProvider/>
+				<type-options
+					include-subtypes="false"
+					type="movie:Human"
+				/>
+			</button>
+			<button id="deleteRow"
+				class="com.top_logic.layout.component.GenericDeleteCommandHandler"
+				target="selection(self())"
+			/>
+		</buttons>
+	</arguments>
+</config:template-call>

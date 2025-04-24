@@ -8,7 +8,7 @@
 	<arguments>
 		<components>
 			<component class="com.top_logic.layout.editor.components.ComponentPlaceholder"
-				name="movie/movies/artists/componentPlaceholderLayout.layout.xml#placeholder"
+				name="movie/movies/artists/componentPlaceholderLayout2.layout.xml#placeholder"
 			/>
 		</components>
 	</arguments>

@@ -7,7 +7,7 @@
 >
 	<arguments>
 		<components>
-			<layout-reference resource="movie/movies/artists/componentPlaceholderLayout.layout.xml">
+			<layout-reference resource="movie/movies/artists/artists.layout.xml">
 				<layoutInfo/>
 			</layout-reference>
 		</components>
