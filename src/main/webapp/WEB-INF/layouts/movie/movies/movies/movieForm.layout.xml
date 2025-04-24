@@ -13,5 +13,38 @@
 			<en>Movie</en>
 			<de>Movie</de>
 		</name>
+		<forms>
+			<form type="movie:Movie">
+				<formDefinition>
+					<field
+						attribute="title"
+						fullQualifiedName="movie:Movie#title"
+						type="tl.core:String"
+					/>
+					<columnsLayout>
+						<field
+							attribute="year"
+							fullQualifiedName="movie:Movie#year"
+							type="tl.core:Integer"
+						/>
+						<field
+							attribute="duration"
+							fullQualifiedName="movie:Movie#duration"
+							type="tl.core:Integer"
+						/>
+						<field
+							attribute="directors"
+							fullQualifiedName="movie:Movie#directors"
+							type="movie:Human"
+						/>
+					</columnsLayout>
+					<field
+						attribute="actors"
+						fullQualifiedName="movie:Movie#actors"
+						type="movie:Human"
+					/>
+				</formDefinition>
+			</form>
+		</forms>
 	</arguments>
 </config:template-call>

@@ -28,7 +28,11 @@
 				/>
 				<property name="title"
 					type="tl.core:String"
-				/>
+				>
+					<annotations>
+						<render-whole-line/>
+					</annotations>
+				</property>
 				<reference name="directors"
 					kind="forwards"
 					multiple="true"
@@ -45,7 +49,11 @@
 					navigate="true"
 					ordered="true"
 					type="Human"
-				/>
+				>
+					<annotations>
+						<reference-display value="table"/>
+					</annotations>
+				</reference>
 			</attributes>
 		</class>
 	</module>
