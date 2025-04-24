@@ -22,6 +22,7 @@
 			supportsElement="element->$element.instanceOf(`movie:Movie`)"
 		/>
 		<configurationProviders>
+			<configurationProvider class="ivanizki.movie.movies.MovieTableConfigurationProvider" />
 			<sort-columns order="year:descending"/>
 		</configurationProviders>
 		<buttons>
