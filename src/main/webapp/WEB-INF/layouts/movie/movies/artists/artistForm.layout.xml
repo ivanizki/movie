@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8" ?>
+
+<config:template-call
+	xmlns:config="http://www.top-logic.com/ns/config/6.0"
+	final="true"
+	template="com.top_logic.element/form.template.xml"
+>
+	<arguments
+		model="selection(movie/movies/artists/artistsGrid.layout.xml#Grid)"
+		type="movie:Human"
+	>
+		<name key="dynamic.1cd24955-53af-4cfa-b5b9-c383f2fa1568">
+			<en>Artist</en>
+			<de>Artist</de>
+		</name>
+		<forms>
+			<form type="movie:Human">
+				<formDefinition>
+					<field
+						attribute="name"
+						fullQualifiedName="movie:Human#name"
+						type="tl.core:String"
+					/>
+					<formTable
+						form-field-name="523dcbbf-c08b-4fa6-a29d-67bab2962638"
+						rows="human->$human.referers(`movie:Movie#actors`)"
+						type="movie:Movie"
+					>
+						<label key="dynamic.e7a4c580-d232-49a6-bb84-dd8998fec440">
+							<en>As Actor</en>
+							<de>As Actor</de>
+						</label>
+						<columns>
+							<column name="year"/>
+							<column name="title"/>
+						</columns>
+					</formTable>
+				</formDefinition>
+			</form>
+		</forms>
+	</arguments>
+</config:template-call>

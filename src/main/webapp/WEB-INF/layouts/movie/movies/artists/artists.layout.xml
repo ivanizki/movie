@@ -10,7 +10,7 @@
 			<layout-reference resource="movie/movies/artists/artistsGrid.layout.xml">
 				<layoutInfo size="33%"/>
 			</layout-reference>
-			<layout-reference resource="movie/movies/artists/componentPlaceholderLayout2.layout.xml">
+			<layout-reference resource="movie/movies/artists/artistForm.layout.xml">
 				<layoutInfo/>
 			</layout-reference>
 		</components>
