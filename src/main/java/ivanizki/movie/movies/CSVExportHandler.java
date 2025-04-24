@@ -52,17 +52,17 @@ public class CSVExportHandler extends AbstractTableExportHandler {
 		CSVDocument document = exportDocument(component);
 
 		log.info(com.top_logic.layout.table.export.I18NConstants.PREPARING_DOWNLOAD);
-		return writeToBibTeX(document);
+		return writeToCSV(document);
 	}
 
 	/**
 	 * Writes the given {@link CSVDocument} to {@link BinaryData}.
 	 */
-	public static BinaryData writeToBibTeX(CSVDocument document) {
+	public static BinaryData writeToCSV(CSVDocument document) {
 		try {
-			File tempFile = writeToBibTeX(document,
-				createTempFile("bibtex-file", ".csv", Settings.getInstance().getTempDir()));
-			return BinaryDataFactory.createBinaryDataWithName(tempFile, "bibtex-file" + ".csv");
+			File tempFile = writeToCSV(document,
+				createTempFile("export-file", ".csv", Settings.getInstance().getTempDir()));
+			return BinaryDataFactory.createBinaryDataWithName(tempFile, "export-file" + ".csv");
 		} catch (Exception ex) {
 			throw new RuntimeException(ex);
 		}
@@ -71,7 +71,7 @@ public class CSVExportHandler extends AbstractTableExportHandler {
 	/**
 	 * Writes the given {@link CSVDocument} to {@link File}.
 	 */
-	public static File writeToBibTeX(CSVDocument document, File file) {
+	public static File writeToCSV(CSVDocument document, File file) {
 		try (OutputStreamWriter writer = new OutputStreamWriter(new FileOutputStream(file))) {
 			writer.append(StringServices.join(document.getHeader(), ";"));
 			writer.append("\n");
