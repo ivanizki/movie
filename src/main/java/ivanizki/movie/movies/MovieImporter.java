@@ -64,10 +64,10 @@ public class MovieImporter {
 		List<Integer> indexList = getIndexList(document);
 		for (List<String> row : document.getRows()) {
 			ImportObject importObject = new ImportObject();
-			for (int i = 0; i < MOVIE_ATTRIBUTES.size(); i++) {
+			for (int i = 0; i < row.size(); i++) {
 				Integer index = indexList.get(i);
 				if (index < row.size()) {
-					importObject.setValue(MOVIE_ATTRIBUTES.get(i), row.get(index));
+					importObject.setValue(MOVIE_ATTRIBUTES.get(index), row.get(i));
 				}
 			}
 			importMovie(importObject);
@@ -139,8 +139,9 @@ public class MovieImporter {
 		List<String> header = document.getHeader();
 		for (int i = 0; i < header.size(); i++) {
 			String attributeName = header.get(i).toLowerCase();
-			if (MOVIE_ATTRIBUTES.contains(attributeName)) {
-				indexList.add(i);
+			int index = MOVIE_ATTRIBUTES.indexOf(attributeName);
+			if (index > -1) {
+				indexList.add(index);
 			}
 		}
 		return indexList;
