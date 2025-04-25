@@ -23,6 +23,7 @@ import com.top_logic.layout.provider.MetaLabelProvider;
 import com.top_logic.layout.table.export.AbstractTableExportHandler;
 import com.top_logic.layout.table.model.ColumnConfiguration;
 import com.top_logic.mig.html.layout.LayoutComponent;
+import com.top_logic.util.Resources;
 
 /**
  * {@link AbstractTableExportHandler} for CSV export.
@@ -52,17 +53,21 @@ public class CSVExportHandler extends AbstractTableExportHandler {
 		CSVDocument document = exportDocument(component);
 
 		log.info(com.top_logic.layout.table.export.I18NConstants.PREPARING_DOWNLOAD);
-		return writeToCSV(document);
+		return writeToCSV(getFileName(component), document);
+	}
+
+	private String getFileName(LayoutComponent component) {
+		String title = Resources.getInstance().getString(component.getConfig().getTitleKey());
+		return StringServices.isEmpty(title) ? "export-file" : title.toLowerCase();
 	}
 
 	/**
 	 * Writes the given {@link CSVDocument} to {@link BinaryData}.
 	 */
-	public static BinaryData writeToCSV(CSVDocument document) {
+	public static BinaryData writeToCSV(String fileName, CSVDocument document) {
 		try {
-			File tempFile = writeToCSV(document,
-				createTempFile("export-file", ".csv", Settings.getInstance().getTempDir()));
-			return BinaryDataFactory.createBinaryDataWithName(tempFile, "export-file" + ".csv");
+			File tempFile = writeToCSV(document, createTempFile(fileName, CSVDocument.FILE_EXTENSIONS, Settings.getInstance().getTempDir()));
+			return BinaryDataFactory.createBinaryDataWithName(tempFile, fileName + CSVDocument.FILE_EXTENSIONS);
 		} catch (Exception ex) {
 			throw new RuntimeException(ex);
 		}

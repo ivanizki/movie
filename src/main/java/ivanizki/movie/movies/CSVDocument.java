@@ -10,6 +10,9 @@ import java.util.List;
  */
 public class CSVDocument {
 
+	/** CSV file extensions. */
+	public static final String FILE_EXTENSIONS = ".csv";
+
 	private List<String> _header;
 
 	private List<List<String>> _rows;
