@@ -35,6 +35,20 @@
 							<column name="title"/>
 						</columns>
 					</formTable>
+					<formTable
+						form-field-name="80482900-b9c2-4a60-bad6-29e3cc8d1a9d"
+						rows="human->$human.referers(`movie:Movie#directors`)"
+						type="movie:Movie"
+					>
+						<label key="dynamic.b57e7c49-c6b4-487b-b50b-87bf7ed08914">
+							<en>As Director</en>
+							<de>As Director</de>
+						</label>
+						<columns>
+							<column name="year"/>
+							<column name="title"/>
+						</columns>
+					</formTable>
 				</formDefinition>
 			</form>
 		</forms>

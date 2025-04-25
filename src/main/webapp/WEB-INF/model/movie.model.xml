@@ -12,6 +12,10 @@
 			<generalizations>
 				<generalization type="tl.model:TLObject"/>
 			</generalizations>
+			<annotations>
+				<sort-columns order="name:ascending"/>
+				<main-properties properties="name"/>
+			</annotations>
 			<attributes>
 				<property name="name"
 					type="tl.core:String"
@@ -22,6 +26,10 @@
 			<generalizations>
 				<generalization type="tl.model:TLObject"/>
 			</generalizations>
+			<annotations>
+				<sort-columns order="year:descending,title:ascending"/>
+				<main-properties properties="year,title,directors"/>
+			</annotations>
 			<attributes>
 				<property name="year"
 					type="tl.core:Integer"

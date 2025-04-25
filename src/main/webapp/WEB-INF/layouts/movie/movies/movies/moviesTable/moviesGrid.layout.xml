@@ -23,7 +23,6 @@
 		/>
 		<configurationProviders>
 			<configurationProvider class="ivanizki.movie.movies.MovieTableConfigurationProvider" />
-			<sort-columns order="year:descending"/>
 		</configurationProviders>
 		<buttons>
 			<button id="exportMovies"
