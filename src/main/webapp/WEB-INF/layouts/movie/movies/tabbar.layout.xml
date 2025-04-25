@@ -9,6 +9,7 @@
 		<components>
 			<layout-reference resource="movie/movies/movies/tabLayout.layout.xml"/>
 			<layout-reference resource="movie/movies/artists/tabLayout.layout.xml"/>
+			<layout-reference resource="movie/movies/genres/tabLayout.layout.xml"/>
 		</components>
 	</arguments>
 </config:template-call>

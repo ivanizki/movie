@@ -6,29 +6,21 @@
 	template="com.top_logic.element/grid.template.xml"
 >
 	<arguments
-		defaultColumns="year,title,directors,genres,duration,actors"
+		defaultColumns="name"
 		fixedColumns="0"
-		type="movie:Movie"
+		type="movie:Genre"
 	>
-		<dialogs>
-			<layout-reference resource="movie/movies/movies/moviesTable/moviesImportDialog.layout.xml"/>
-		</dialogs>
-		<name key="dynamic.53053a9c-b252-481b-81ca-f80bc2b2a06d">
-			<en>Movies</en>
-			<de>Movies</de>
+		<name key="dynamic.69104e32-7f78-4369-96a0-a42728cf9d64">
+			<en>Genres</en>
+			<de>Genres</de>
 		</name>
 		<modelBuilder class="com.top_logic.model.search.providers.ListModelByExpression"
-			elements="model->all(`movie:Movie`)"
-			supportsElement="element->$element.instanceOf(`movie:Movie`)"
+			elements="model->all(`movie:Genre`)"
+			supportsElement="element->$element.instanceOf(`movie:Genre`)"
 		/>
-		<configurationProviders>
-			<configurationProvider class="ivanizki.movie.movies.MovieTableConfigurationProvider" />
-		</configurationProviders>
 		<buttons>
-			<button id="exportMovies"
-				class="ivanizki.movie.movies.CSVExportHandler"
-				image="css:fas fa-file-download"
-				resourceKey="exportMovies"
+			<button id="exportExcelGrid"
+				class="com.top_logic.layout.table.export.StreamingExcelExportHandler"
 			/>
 			<button id="createRow"
 				class="com.top_logic.model.search.providers.GridCreateHandlerByExpression"
@@ -36,7 +28,7 @@
 				<checkScopeProvider/>
 				<type-options
 					include-subtypes="false"
-					type="movie:Movie"
+					type="movie:Genre"
 				/>
 			</button>
 			<button id="deleteRow"

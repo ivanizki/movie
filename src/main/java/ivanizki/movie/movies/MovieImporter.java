@@ -22,15 +22,19 @@ import com.top_logic.model.util.TLModelUtil;
 public class MovieImporter {
 
 	private static final List<String> MOVIE_ATTRIBUTES =
-		CollectionUtil.list("year", "title", "directors", "duration", "actors");
+		CollectionUtil.list("year", "title", "directors", "genres", "duration", "actors");
 
 	private static final TLClass MOVIE_TYPE = (TLClass) TLModelUtil.findType("movie", "Movie");
 
 	private static final TLClass HUMAN_TYPE = (TLClass) TLModelUtil.findType("movie", "Human");
 
+	private static final TLClass GENRE_TYPE = (TLClass) TLModelUtil.findType("movie", "Genre");
+
 	private Map<String, Wrapper> _movies;
 
 	private Map<String, Wrapper> _humans;
+
+	private Map<String, Wrapper> _genres;
 
 	/**
 	 * Creates a new {@link MovieImporter}.
@@ -38,6 +42,7 @@ public class MovieImporter {
 	public MovieImporter() {
 		_movies = MapUtil.createValueMap(getAllMovies(), movie -> getMovieKey(movie));
 		_humans = MapUtil.createValueMap(getAllHumans(), human -> getHumanKey(human));
+		_genres = MapUtil.createValueMap(getAllGenres(), human -> getGenreKey(human));
 	}
 
 	private List<Wrapper> getAllMovies() {
@@ -46,6 +51,10 @@ public class MovieImporter {
 
 	private List<Wrapper> getAllHumans() {
 		return MetaElementUtil.getAllInstancesOf(HUMAN_TYPE, Wrapper.class);
+	}
+
+	private List<Wrapper> getAllGenres() {
+		return MetaElementUtil.getAllInstancesOf(GENRE_TYPE, Wrapper.class);
 	}
 
 	/**
@@ -75,6 +84,7 @@ public class MovieImporter {
 			movie.setValue("duration", parseInteger((String) importMovie.getValue("duration")));
 			movie.setValue("directors", parseHumans((String) importMovie.getValue("directors")));
 			movie.setValue("actors", parseHumans((String) importMovie.getValue("actors")));
+			movie.setValue("genres", parseGenres((String) importMovie.getValue("genres")));
 		}
 	}
 
@@ -103,6 +113,27 @@ public class MovieImporter {
 		return human;
 	}
 
+	private List<ValueProvider> parseGenres(String names) {
+		List<ValueProvider> genres = new ArrayList<>();
+		for (String name : MovieImportHandler.split(names, ",")) {
+			ImportObject importObject = new ImportObject();
+			importObject.setValue("name", name);
+			genres.add(importGenre(importObject));
+		}
+		return genres;
+	}
+
+	private ValueProvider importGenre(ImportObject importGenre) {
+		String key = getGenreKey(importGenre);
+		Wrapper genre = _genres.get(key);
+		if (genre == null) {
+			genre = (Wrapper) DynamicModelService.getInstance().createObject(GENRE_TYPE);
+			genre.setValue("name", getName(importGenre));
+			_genres.put(key, genre);
+		}
+		return genre;
+	}
+
 	private List<Integer> getIndexList(CSVDocument document) {
 		List<Integer> indexList = new ArrayList<>();
 		List<String> header = document.getHeader();
@@ -124,6 +155,10 @@ public class MovieImporter {
 	}
 
 	private String getHumanKey(ValueProvider wrapper) {
+		return getKey(getName(wrapper));
+	}
+
+	private String getGenreKey(ValueProvider wrapper) {
 		return getKey(getName(wrapper));
 	}
 

@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8" ?>
+
+<config:template-call
+	xmlns:config="http://www.top-logic.com/ns/config/6.0"
+	final="true"
+	template="com.top_logic/tab.template.xml"
+>
+	<arguments helpID="">
+		<tabLabel key="dynamic.705e703c-3b4f-44fc-a182-968192bbff69">
+			<en>Genres</en>
+			<de>Genres</de>
+		</tabLabel>
+		<components>
+			<layout-reference resource="movie/movies/genres/innerLayout.layout.xml"/>
+		</components>
+	</arguments>
+</config:template-call>
