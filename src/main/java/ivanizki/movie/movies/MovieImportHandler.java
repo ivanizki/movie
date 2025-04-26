@@ -70,7 +70,7 @@ public class MovieImportHandler extends AbstractCommandHandler {
 	}
 
 	private static List<String> splitColumns(String string) {
-		return split(string, ";");
+		return split(string, ';');
 	}
 
 	/**
@@ -79,10 +79,10 @@ public class MovieImportHandler extends AbstractCommandHandler {
 	 * 
 	 * @return the resulting partial {@link String}s.
 	 */
-	public static List<String> split(String string, String regex) {
+	public static List<String> split(String string, char separator) {
 		List<String> parts = new ArrayList<>();
 		if (!StringServices.isEmpty(string)) {
-			for (String part : string.split(regex)) {
+			for (String part : StringServices.split(string, separator)) {
 				parts.add(part.trim());
 			}
 		}

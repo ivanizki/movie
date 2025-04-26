@@ -94,7 +94,7 @@ public class MovieImporter {
 
 	private List<ValueProvider> parseHumans(String names) {
 		List<ValueProvider> humans = new ArrayList<>();
-		for (String name : MovieImportHandler.split(names, ",")) {
+		for (String name : MovieImportHandler.split(names, ',')) {
 			ImportObject importObject = new ImportObject();
 			importObject.setValue("name", name);
 			humans.add(importHuman(importObject));
@@ -115,7 +115,7 @@ public class MovieImporter {
 
 	private List<ValueProvider> parseGenres(String names) {
 		List<ValueProvider> genres = new ArrayList<>();
-		for (String name : MovieImportHandler.split(names, ",")) {
+		for (String name : MovieImportHandler.split(names, ',')) {
 			ImportObject importObject = new ImportObject();
 			importObject.setValue("name", name);
 			genres.add(importGenre(importObject));

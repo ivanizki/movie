@@ -4,9 +4,7 @@ import java.io.File;
 import java.io.FileOutputStream;
 import java.io.OutputStreamWriter;
 import java.util.ArrayList;
-import java.util.HashSet;
 import java.util.List;
-import java.util.Set;
 
 import com.top_logic.basic.Settings;
 import com.top_logic.basic.StringServices;
@@ -137,8 +135,8 @@ public class CSVExportHandler extends AbstractTableExportHandler {
 		return attributeNames;
 	}
 
-	private Set<Wrapper> collectWrappers(TableField table) {
-		Set<Wrapper> wrappers = new HashSet<>();
+	private List<Wrapper> collectWrappers(TableField table) {
+		List<Wrapper> wrappers = new ArrayList<>();
 		for (Object row : table.getTableModel().getAllRows()) {
 			wrappers.add((Wrapper) GridComponent.getRowObject((FormGroup) row));
 		}
