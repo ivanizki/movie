@@ -30,6 +30,15 @@
 				<property name="name"
 					type="tl.core:String"
 				/>
+				<property name="rating"
+					type="tl.core:Integer"
+				>
+					<annotations>
+						<storage-algorithm>
+							<query expr="human->$human.referers(`movie:Movie#actors`).concat($human.referers(`movie:Movie#directors`)).size()"/>
+						</storage-algorithm>
+					</annotations>
+				</property>
 			</attributes>
 		</class>
 		<class name="Movie">
