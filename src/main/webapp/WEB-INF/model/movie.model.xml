@@ -23,8 +23,8 @@
 				<generalization type="tl.model:TLObject"/>
 			</generalizations>
 			<annotations>
-				<sort-columns order="name:ascending"/>
-				<main-properties properties="name"/>
+				<sort-columns order="rating:descending,name:ascending"/>
+				<main-properties properties="rating,name"/>
 			</annotations>
 			<attributes>
 				<property name="name"
