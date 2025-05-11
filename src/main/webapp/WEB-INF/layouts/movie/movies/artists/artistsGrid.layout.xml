@@ -6,7 +6,7 @@
 	template="com.top_logic.element/grid.template.xml"
 >
 	<arguments
-		defaultColumns="name"
+		defaultColumns="rating,name"
 		fixedColumns="0"
 		type="movie:Human"
 	>
