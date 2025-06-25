@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8" ?>
+
+<config:template-call
+	xmlns:config="http://www.top-logic.com/ns/config/6.0"
+	final="true"
+	template="com.top_logic/tab.template.xml"
+>
+	<arguments helpID="">
+		<tabLabel key="dynamic.bd4c41f5-49ca-43b1-b5c2-39ea7de8dea6">
+			<en>Timeline</en>
+			<de>Timeline</de>
+		</tabLabel>
+		<components>
+			<layout-reference resource="movie/movies/timeline/innerLayout.layout.xml"/>
+		</components>
+	</arguments>
+</config:template-call>

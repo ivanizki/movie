@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8" ?>
+
+<config:template-call
+	xmlns:config="http://www.top-logic.com/ns/config/6.0"
+	final="true"
+	template="com.top_logic.chart.chartjs/chartjs.template.xml"
+>
+	<arguments>
+		<name key="dynamic.c23c8524-9680-433b-9a90-38b3b718673f">
+			<en>Timeline</en>
+			<de>Timeline</de>
+		</name>
+		<model class="com.top_logic.layout.channel.linking.impl.ProviderLinking">
+			<script expr="all(`movie:Movie`)"/>
+		</model>
+		<data><![CDATA[movies->{
+   years = $movies.get(`movie:Movie#year`).toSet().sort();
+   indexfun = movie -> $movie.get(`movie:Movie#year`);
+   reducefun = subtotal -> listElem -> $subtotal + 1;
+   result = $movies.indexReduce($indexfun, 0, $reducefun);
+   counts = $years.map(year->$result[$year]);
+{
+	'type': 'bar',
+	'data': {
+	    'labels': $years,
+		'datasets': [{'data':$counts}]
+	},
+	'options': {
+		'maintainAspectRatio': false,
+		'plugins': {
+            'colorschemes': {
+            	// See https://nagix.github.io/chartjs-plugin-colorschemes/colorchart.html
+                'scheme': 'tableau.Tableau10'
+            },
+            'legend': {
+                'display': false
+            }
+        },
+		'scales': {
+		    'y': {
+			    'ticks': {
+			        'min': 0
+			    }
+		    },
+			'x': {
+				'gridLines': {
+					'offsetGridLines': true
+				}
+			}
+		}
+	}
+}
+}]]></data>
+	</arguments>
+</config:template-call>
