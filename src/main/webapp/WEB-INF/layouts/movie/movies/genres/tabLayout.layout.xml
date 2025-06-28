@@ -6,7 +6,7 @@
 	template="com.top_logic/tab.template.xml"
 >
 	<arguments helpID="">
-		<tabLabel key="dynamic.705e703c-3b4f-44fc-a182-968192bbff69">
+		<tabLabel key="dynamic.5009b56f-cf59-4815-95aa-33a9999a8d46">
 			<en>Genres</en>
 			<de>Genres</de>
 		</tabLabel>

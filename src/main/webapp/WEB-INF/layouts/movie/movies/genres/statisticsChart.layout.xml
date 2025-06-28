@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8" ?>
+
+<config:template-call
+	xmlns:config="http://www.top-logic.com/ns/config/6.0"
+	final="true"
+	template="com.top_logic.chart.chartjs/chartjs.template.xml"
+>
+	<arguments>
+		<name key="dynamic.94e4318b-fa82-466b-af8e-537e1df9d892">
+			<en>Statistics</en>
+			<de>Statistics</de>
+		</name>
+		<model class="com.top_logic.layout.channel.linking.impl.ProviderLinking">
+			<script expr="all(`movie:Movie`)"/>
+		</model>
+		<data><![CDATA[movies->{
+   genres = $movies.get(`movie:Movie#genres`).flatten().toSet().sort();
+   indexfun = movie -> $movie.get(`movie:Movie#genres`).firstElement();
+   reducefun = subtotal -> listElem -> $subtotal + 1;
+   result = $movies.indexReduce($indexfun, 0, $reducefun);
+   counts = $genres.map(genre->$result[$genre]);
+{
+	'type': 'doughnut',
+	'data': {
+	    'labels': $genres.get(`movie:Genre#name`),
+		'datasets': [{'data':$counts}]
+	},
+	'options': {
+		'maintainAspectRatio': false,
+		'plugins': {
+            'colorschemes': {
+            	// See https://nagix.github.io/chartjs-plugin-colorschemes/colorchart.html
+                'scheme': 'tableau.Tableau10'
+            },
+            'legend': {
+                'display': false
+            }
+        }
+	}
+}
+}]]></data>
+	</arguments>
+</config:template-call>
